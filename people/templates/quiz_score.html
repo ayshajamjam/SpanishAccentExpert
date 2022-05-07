@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<body class = "bgcolor2">
+    <div class="scorebox">
+        <br>
+        <div class = "performance" id = "performance"></div>
+        <h1>You got a <span id="myscore"></span> out of 10.</h1>
+        <br>
+        <br>
+        <div id = "back_to_learn"></div>
+
+        <button class="btn buttoncolor2" id="again">Retake Quiz</button>
+    </div>
+</body>
+
+
+<script type="text/javascript">
+    let userscore = {{score|tojson}}
+    if(userscore < 6){
+        document.getElementById("performance").innerHTML = "You need to practice more!"
+        document.getElementById("back_to_learn").innerHTML = '<button class="btn buttoncolor2" id = "back_to_learn_btn">Go back to learning</button>';
+    }
+    else{
+        document.getElementById("performance").innerHTML = "Great job!"
+    }
+    document.getElementById("myscore").innerHTML = userscore;
+
+    $("#back_to_learn_btn").click(function() {
+        location.href = "/learn/1"
+    })
+    $("#again").click(function() {
+        location.href = "/quiz"
+    })
+    
+</script>
+
+{% endblock %}

@@ -1,0 +1,371 @@
+#hello_div{
+    padding-top:  10px;
+    padding-bottom:  10px;
+    color: red;
+}
+
+.green{
+    background-color: #99ff66 !important;
+}
+
+.darkcolor{
+    background-color: #3d5a80 ;
+}
+
+.lightcolor{
+    background-color: #98c1d9 ;
+}
+
+.bgcolor{
+    background-color: #182d4a
+}
+
+.bgcolor2{
+    background-color: #f2f2f2;
+}
+.performance{
+    font-size: 70px;}
+
+.backtolearn{
+    font-size: 60px;
+}
+.buttons{
+    text-align: center;
+    width: 100%;
+    left: 50%;
+    border-width: 1px;
+    border-color: black;
+}
+
+.buttoncolor{
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+    cursor: pointer;
+    padding: 10px 20px;
+    margin-right: 10px;
+    font-size: 24px;
+    border-radius: 15px;
+}
+
+.buttoncolor:hover{
+    background-color: rgb(193, 195, 197);
+}
+
+.buttoncolor_home_page{
+    background-color: #749ea6;
+    height: 70px;
+    width: 150px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    overflow: auto;
+}
+
+.buttoncolor_home_page:hover{
+    color: white;
+    background-color: #55747a;
+}
+
+.nextbutton{
+    text-align: right;
+    position:absolute
+}
+
+.buttoncolor2{
+    background-color: #749ea6;
+    height: 70px;
+    width: 150px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.scorebox{
+    text-align: center
+}
+
+
+
+.red{
+    background-color: #ff3333 !important;
+}
+
+.needs_accent_box{
+    background-color:lightgray;
+    height:300px;
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+    text-align: center;
+}
+
+.no_accent_box{
+    background-color:lightgray;
+    height:300px;
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+    text-align: center;
+
+}
+
+.accenttext{
+    text-align: center;
+    font-weight:bold;
+}
+
+
+.wordlist{
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+    cursor: pointer;
+    padding: 10px 20px;
+    margin-right: 10px;
+    font-size: 16px;
+    border-radius: 15px;
+    width: 150px;
+    text-align: center;
+}
+
+
+.wordlist {
+    z-index:1;
+}
+
+.over_color{
+    background-color:  #dfe2e8 !important;;
+}
+
+.done{
+    text-align:center
+}
+
+li:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+#learning_outline{
+    padding: 40px;
+}
+
+#learning_content{
+    padding: 40px;
+}
+
+#learning_body{
+    height: 400px;
+}
+
+#learning_buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#next_back_div{
+    display: flex;
+    justify-content: flex-end;
+}
+
+#next_back_div3{
+    position: fixed; 
+    left:70%;
+}
+
+#next_back_div2{
+    position: fixed; 
+    left: 70%
+}
+
+.btn{
+    margin: 4px;
+}
+
+/* Quiz */
+
+#quiz_title{
+    font-size: 80px;
+}
+
+.percentage{
+    margin-top: 20px;
+}
+
+.center_horizontal_home {
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    transform: translate(-50%, -50%);
+}
+
+.center_home {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.center_horizontal{
+    position: fixed;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 100%;
+    height: 400px;
+    margin-top: 50px;
+}
+
+.center_center{
+    margin-top: 30px;
+    display: block;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.quiz_center{
+    text-align: center;
+}
+
+#next_button{
+    color: white;
+    background-color: gray;
+    transition-duration: 0.2s;
+    cursor: pointer;
+    padding: 5px 20px;
+    font-size: 16px;
+    border: none;
+    margin-top: 30px;
+    margin-left: 4px;
+}
+
+#next_button:hover{
+    background-color: #55747a;
+    border: none;
+    color: white;
+}
+
+#back{
+    color: white;
+    background-color: gray;
+    transition-duration: 0.2s;
+    cursor: pointer;
+    padding: 5px 20px;
+    font-size: 16px;
+    border: none;
+    margin-top: 30px;
+    margin-left: 4px;
+}
+
+#back:hover{
+    background-color: #55747a;
+    border: none;
+    color: white;
+}
+
+#start_quiz_btn{
+    background-color: #749ea6;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 15px 32px;
+    font-size: 20px;
+}
+
+#start_quiz_btn:hover{
+    background-color: #55747a;
+    border: none;
+    color: white;
+}
+
+.quiz_option_btn{
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+    cursor: pointer;
+    padding: 10px 20px;
+    margin-right: 10px;
+    font-size: 24px;
+    border-radius: 15px;
+}
+
+.quiz_option_btn:hover{
+    background-color: rgb(193, 195, 197);
+}
+
+#pronounciation{
+    margin: 10px;
+}
+
+.play_quiz{
+    margin-top: 20px;
+    padding: 5px;
+    margin-left: 10px;
+    background-color: white;
+    border: 1px solid black;
+    font-size: 15px;
+}
+
+.play_quiz:hover{
+    cursor: pointer;
+    background-color: rgb(193, 195, 197);
+}
+
+.sound:active{
+    background-color: gray;
+}
+
+.right{
+    background-image: url("https://edge.mondly.com/blog/wp-content/uploads/2019/03/spanish-accents.png");
+    width: 50%;
+    position: absolute;
+    right: 0px;
+    height: 100%;
+    background-repeat: no-repeat;
+
+}
+
+.left{
+    width: 50%;
+    position: absolute;
+    left: 0px;
+    top:30%;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.sub{
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.titlewords{
+    font-size: 80px;
+    font-weight: bold;
+}
+
+#feedback{
+    font-size: 30px;
+}
+
+#feedback_explanation{
+    font-size: 18px;
+    display: block;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+
+}
+
+.text_color{
+    color: #fcf2e6;
+}
+

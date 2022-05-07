@@ -1,0 +1,99 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<body class = "bgcolor2">
+    <div class="container">
+    <div class="row">
+        <div class="col-md-4" id="learning_outline">
+            <ul style="list-style: none;">
+                {% for n in learn.navbefore %}
+                <li>{{n}}</li>
+                {% endfor %}
+                <li><b>{{learn.bold}}</b></li>
+                {% for n in learn.navafter %}
+                <li>{{n}}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-md-8" id="learning_content">
+
+            <h1>{{learn.header}}</h1>
+            <div id="learning_body">
+                {% for c in learn.content %}
+                    {{c}}
+                {% endfor %}
+                <br><br>
+                <small> {{learn.instructions}} </small>
+                <div id="learning_buttons">
+                    {% for b in learn.buttons %}
+                        <input type="button" value="{{b[0]}}" class="{{b[1]}} btn buttoncolor"/>
+                    {% endfor %}
+                </div> 
+                {% for sound_aud in learn.hear %}
+                    <button class = "btn sound2 play_quiz" value = {{sound_aud}}>Hear Pronounciation</button>
+                {% endfor %}
+                <div id="feedback"></div>
+            </div>
+            
+            <div id="next_back_div">
+                <button id="back">back</button> <button id="next_button">next</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+<script type="text/javascript">
+    let learn = {{learningdata|tojson}}
+    let sounds = {{word_data|tojson}}
+
+    $( "#next_button" ).click(function() {
+        if("{{learn.next_question_id}}" == "end"){
+                location.href = "/quiz"
+            }
+        else{location.href = "/learn/{{learn.next_question_id}}"}
+            
+    })
+    $( "#back" ).click(function() {
+        if("{{learn.prev_question_id}}" == "start"){
+            location.href = "/"
+        }
+        else{location.href = "/learn/{{learn.prev_question_id}}"}
+            
+    })
+
+    $(".w").click(function(){
+        $("#feedback").html("Incorrect. <button id='back'>Go back to review.</button>")
+        $("#feedback").css("color", "#ff3333")
+        $(this).css("background-color", "#ff3333");
+        $( "#back" ).click(function() {
+        if("{{learn.prev_question_id}}" == "start"){
+            location.href = "/"
+        }
+        else{location.href = "/learn/{{learn.prev_question_id}}"}      
+    })
+    })
+    $(".r").click(function(){
+        $("#feedback").html("Correct!")
+        $("#feedback").css("color", "#518f4f")
+        $(".r").css("background-color", "#99ff66");
+        let snd = new Audio("/static/audio/khan-academy-sound.mp3")
+        snd.play()
+    })
+    $(".sound").click(function(){
+        let word = $(this).val()
+        let snd_name = sounds[word].audio
+        var snd = new Audio(snd_name)
+        snd.play()
+    })
+    $(".sound2").click(function(){
+        console.log("Sound pressed in quiz")
+        let snd = new Audio($(this).val())
+        snd.play()
+    })
+    
+</script>
+
+
+{% endblock %}

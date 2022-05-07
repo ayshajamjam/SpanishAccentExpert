@@ -1,0 +1,48 @@
+
+
+<html>
+    <head>
+        
+            <!-- Required meta tags -->
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+             <link rel="icon" href="data:,">
+        
+        <!-- jquery -->
+          <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+          <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>  
+          <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        
+          <!-- Bootstrap CSS -->
+          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+
+          <script type="text/javascript" src="{{ url_for('static', filename = 'home.js') }}"></script>
+          <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}">
+    </head>
+
+
+    <body class = "bgcolor">
+    <div class="container">
+        <div class="row"> 
+            
+            <div class="left">
+                <b class="titlewords text_color">Spanish Accent Expert</b> <br>
+                <b class= "sub text_color">Where do accent marks go on Spanish words? Learn a few simple rules to place accent marks correctly and write like a fluent speaker.</b>
+                <br>
+                <br>
+                <div class="buttons">
+                    <button id="learn" class="btn buttoncolor_home_page" href="/learn/1">Learn</button>
+                    <button class="btn buttoncolor_home_page" id="practice" href="/quiz">Practice</button>
+                </div>
+            </div>
+            <div class="right">
+            </div>
+        </div>
+    </div>
+</body></html>
+
+
+
+
+
+

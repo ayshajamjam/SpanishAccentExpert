@@ -1,0 +1,122 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body class="bgcolor2">
+    <div class = "container">
+        <h3 class = "percentage">Question {{quiz.id}}/10</h3>
+        <div class = "center_horizontal">
+            <div>
+                <h1>{{quiz.question}}</h1>
+            </div>
+            <div>
+                <div class = "row center_center">
+                    {% for word in quiz.options %}
+                        {% if word == quiz.correct %}
+                            <input type="button" id = "{{word}}" class = "quiz_option_btn correct" onclick='storeVar(this)' value="{{word}}"/>
+                        {% else %}
+                            <input type="button" id = "{{word}}" class = "quiz_option_btn wrong" onclick='storeVar(this)' value="{{word}}"/>
+                    {% endif %}
+                    {% endfor %}
+                    <div>
+                        <button class = "btn sound play_quiz" value = {{quiz.audio}}>Hear Pronounciation</button>
+                    </div>
+                    <div id="next_back_div2">
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <button id="next_button">Next</button>
+                        <div id="error_next"></div>
+                    </div>
+                </div>
+                <div id="feedback"></div>
+                <div id="feedback_explanation"></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script type="text/javascript">
+    let quiz = {{data|tojson}}
+    let data_to_save = "";
+    function storeVar(el) {localStorage
+        ans = el.getAttribute('value'); 
+        console.log(typeof ans)
+        data_to_save = {"ans": ans}
+        console.log(data_to_save)
+
+
+        $.ajax({
+            type: "POST",
+            url: "../keepscore",                
+            dataType : "json",
+            contentType: "application/json; charset=utf-8",
+            data : JSON.stringify(data_to_save),
+            success: function(result){
+                console.log(result)
+            },
+            error: function(request, status, error){
+                console.log("Error");
+                console.log(request)
+                console.log(status)
+                console.log(error)
+            }
+        });
+
+    }
+
+    $(".sound").click(function(){
+        console.log("Sound pressed in quiz")
+        let snd = new Audio($(this).val())
+        snd.play()
+    })
+
+    $(".correct").click(function(){
+        $("#error_next").remove()
+
+        $("#feedback").html("Correct!")
+        $("#feedback").css("color", "#518f4f")
+        $(".correct").css("background-color", "#99ff66");
+        $(".quiz_option_btn").prop('disabled', true);
+
+        let snd = new Audio("/static/audio/khan-academy-sound.mp3")
+        snd.play()
+        
+    })
+    $(".wrong").click(function(){
+        $("#error_next").remove()
+
+        $("#feedback").html("Wrong!")
+        $("#feedback").css("color", "#ff3333")
+        $("#feedback_explanation").html("{{quiz.explanation}}")
+        $("#feedback_explanation").css("color", "#ff3333")
+        
+        $(this).css("background-color", "#ff3333");
+        $(".correct").css("background-color", "#99ff66");
+        $(".quiz_option_btn").prop('disabled', true);
+    })
+
+    $( "#next_button" ).click(function() {
+        if(data_to_save == ""){
+            $("#error_next").html("Please select an answer")
+            $("#error_next").css("color", "red")
+        }
+        else{
+            if("{{quiz.next_question_id}}" == "9"){
+            location.href = "/quiz2/{{quiz.next_question_id}}"
+            }
+            else{
+                location.href = "/quiz1/{{quiz.next_question_id}}"
+            } 
+        }
+    })
+
+</script>
+
+{% endblock %}
